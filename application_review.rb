@@ -238,40 +238,6 @@ class ApplicationReview
     }
   end
 
-  def self.insurance_requirements_format_dependencies
-    {
-      "oneOf_08" => [
-        {
-          "properties" => {
-            "2019-07-01--HAS_INSURANCE_REQS" => {
-              "type" => "boolean",
-              "enum" => [false],
-            },
-          },
-        },
-        {
-          "properties" => {
-            "2019-07-01--INSURANCE_REQ_FORMAT" => {
-              "type" => "string",
-              "enum" => ["manual"],
-            },
-            "2019-07-01--MANUAL_INSURANCE_REQS" => { "$ref" => "#/definitions/2019-07-01--MANUAL_INSURANCE_REQS" },
-          },
-          "required" => ["2019-07-01--MANUAL_INSURANCE_REQS"],
-        },
-        {
-          "properties" => {
-            "2019-07-01--INSURANCE_REQ_FORMAT" => {
-              "type" => "string",
-              "enum" => ["high-touch"],
-            },
-            "2019-07-01--HIGH_TOUCH_INSURANCE_REQS" => { "$ref" => "#/definitions/2019-07-01--HIGH_TOUCH_INSURANCE_REQS" },
-          },
-          "required" => ["2019-07-01--HIGH_TOUCH_INSURANCE_REQS"],
-        },
-      ],
-    }
-  end
 
   def self.full_time_worker_dependencies
     {
